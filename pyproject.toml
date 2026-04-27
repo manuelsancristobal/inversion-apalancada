@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inversion-apalancada"
+version = "1.0.0"
+description = "Monte Carlo simulation comparing investment strategies with and without leverage"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Manuel San Cristóbal", email = "msancristo@fen.uchile.cl"}]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0,<10",
+    "pytest-cov>=6.0,<7",
+    "ruff>=0.11,<1",
+    "pre-commit>=3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/manuelsancristobal/inversion-apalancada"
+Repository = "https://github.com/manuelsancristobal/inversion-apalancada"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = ["E501", "B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]

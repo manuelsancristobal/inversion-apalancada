@@ -54,10 +54,7 @@ def amortizacion(pv: float, i: float, n: int, pmt: float) -> np.ndarray:
     if pv <= 0 or i < 0 or n <= 0 or pmt <= 0:
         raise ValueError("Todos los parámetros deben ser positivos")
     if pmt <= pv * i:
-        raise ValueError(
-            f"El pago mensual ({pmt:,.0f}) es insuficiente "
-            f"para cubrir los intereses ({pv * i:,.0f})"
-        )
+        raise ValueError(f"El pago mensual ({pmt:,.0f}) es insuficiente para cubrir los intereses ({pv * i:,.0f})")
 
     saldo = pv
     saldos = [pv]
@@ -150,9 +147,7 @@ def ejecutar_simulacion_completa(
 
     for i in range(n_sim):
         for key, config in STRATEGIES.items():
-            trayectorias[key][i] = _simular_trayectoria(
-                key, config["fund"], config["leveraged"], saldos_deuda, df
-            )
+            trayectorias[key][i] = _simular_trayectoria(key, config["fund"], config["leveraged"], saldos_deuda, df)
 
     # Estadísticas mes a mes
     estadisticas = {}

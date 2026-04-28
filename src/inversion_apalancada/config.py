@@ -34,6 +34,7 @@ META = 30_000_000  # Objetivo financiero
 N_SIMULACIONES = 10_000  # Número de simulaciones Monte Carlo
 I_CRED = 0.0125  # Tasa de crédito mensual
 
+
 # ── Fondos Mutuos ──────────────────────────────────────
 @dataclass(frozen=True)
 class FundParams:

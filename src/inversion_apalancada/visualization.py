@@ -53,7 +53,7 @@ def generate_charts(resultados: dict[str, list[float]], output_dir: Path) -> lis
     ax.set_title("Distribución del Patrimonio Neto Final", fontsize=14, fontweight="bold")
     ax.legend(loc="upper right", fontsize=10)
     ax.grid(axis="y", alpha=0.3)
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x/1e6:.1f}M"))
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x / 1e6:.1f}M"))
 
     path1 = output_dir / "01_histogram.png"
     fig.savefig(path1, dpi=PLOT_DPI, bbox_inches="tight")
@@ -77,7 +77,7 @@ def generate_charts(resultados: dict[str, list[float]], output_dir: Path) -> lis
     ax.tick_params(axis="x", rotation=15)
     ax.legend(fontsize=10)
     ax.grid(axis="y", alpha=0.3)
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x/1e6:.0f}M"))
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x / 1e6:.0f}M"))
 
     path2 = output_dir / "02_boxplot.png"
     fig.savefig(path2, dpi=PLOT_DPI, bbox_inches="tight")
@@ -99,7 +99,7 @@ def generate_charts(resultados: dict[str, list[float]], output_dir: Path) -> lis
     ax.set_title("Función de Distribución Acumulativa", fontsize=14, fontweight="bold")
     ax.legend(fontsize=10)
     ax.grid(True, alpha=0.3)
-    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x/1e6:.0f}M"))
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x / 1e6:.0f}M"))
 
     path3 = output_dir / "03_cdf.png"
     fig.savefig(path3, dpi=PLOT_DPI, bbox_inches="tight")
@@ -126,8 +126,8 @@ def generate_charts(resultados: dict[str, list[float]], output_dir: Path) -> lis
     ax.set_ylabel("Rendimiento Esperado (Media)", fontsize=12)
     ax.set_title("Frontera Riesgo-Rendimiento", fontsize=14, fontweight="bold")
     ax.grid(True, alpha=0.3)
-    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x/1e6:.0f}M"))
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x/1e6:.0f}M"))
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x / 1e6:.0f}M"))
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f"${x / 1e6:.0f}M"))
 
     path4 = output_dir / "04_risk_return.png"
     fig.savefig(path4, dpi=PLOT_DPI, bbox_inches="tight")

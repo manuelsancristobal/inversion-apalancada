@@ -1,7 +1,10 @@
 # Inversión Apalancada - Simulación de Monte Carlo
 
+## Contexto
+Este proyecto nació en el año 2025, solo porque leí mal una oferta de crédito. A la rápida vi una tasa imposible de creer, por lo que me cayó la pregunta ¿Y si pido un crédito para invertir? 
+
 ## Impacto y Valor del Proyecto
-Este simulador financiero aborda el problema de la gestión de riesgos en estrategias de inversión apalancada. Mediante simulaciones de Monte Carlo, el proyecto cuantifica la probabilidad de ruina y el impacto de la volatilidad en el capital a largo plazo bajo diferentes niveles de exposición. Es una herramienta crítica para inversores que buscan optimizar su retorno ajustado por riesgo y comprender empíricamente por qué "más apalancamiento" no siempre se traduce en mayor riqueza acumulada debido al arrastre de la volatilidad (*volatility drag*).
+Este simulador financiero, mediante simulaciones de Monte Carlo, cuantifica la probabilidad de ruina y el impacto de la volatilidad en el capital a largo plazo bajo diferentes niveles de exposición. Si eres un inversor que busca optimizar tu retorno ajustado por riesgo, esta herramienta crítica te permite comprender por qué "más apalancamiento" no siempre se traduce en mayor riqueza acumulada debido al arrastre de la volatilidad (*volatility drag*).
 
 ## Stack Tecnológico
 - **Lenguaje**: Python 3.10+

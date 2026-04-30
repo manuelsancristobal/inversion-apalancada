@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "inversion-apalancada"
 version = "1.0.0"
-description = "Monte Carlo simulation comparing investment strategies with and without leverage"
+description = "Simulación de Montecarlo comparando estrategias de inversión con y sin apalancamiento"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [{name = "Manuel San Cristóbal", email = "msancristo@fen.uchile.cl"}]

@@ -1,5 +1,7 @@
 # Inversión Apalancada - Simulación de Monte Carlo
 
+[![CI](https://github.com/manuelsancristobal/inversion-apalancada/actions/workflows/ci.yml/badge.svg)](https://github.com/manuelsancristobal/inversion-apalancada/actions/workflows/ci.yml)
+
 ## Contexto
 Este proyecto nació en el año 2025, solo porque leí mal una oferta de crédito. A la rápida vi una tasa imposible de creer, por lo que me cayó la pregunta ¿Y si pido un crédito para invertir? 
 

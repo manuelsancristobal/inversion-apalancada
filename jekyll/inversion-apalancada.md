@@ -13,11 +13,15 @@ tech_stack:
   - Monte Carlo
 ---
 
-## Visualización Interactiva
+## Comparativa de Resultados: ¿Deuda o Ahorro Gradual?
 
-¿Endeudarse para invertir o ahorrar paso a paso? Esta pregunta no tiene una respuesta única. Depende de tu tolerancia al riesgo, tu capacidad de pago y tus circunstancias personales. Para ayudarte a tomar una decisión informada, realicé una simulación Monte Carlo que compara cuatro estrategias diferentes: dos con apalancamiento (usando fondos mutuos reales de BancoEstado AGF) y dos sin deuda.
+**Los aportes sin deuda ofrecen un rendimiento promedio superior con menor riesgo que las estrategias apalancadas.** Como se aprecia en los resultados de la simulación a 5 años, la estrategia de **Aportes Agresivos** alcanza un patrimonio promedio de **~$62 millones**, superando los **~$56 millones** del **Apalancamiento Agresivo**.
 
-La visualización interactiva a continuación te permite explorar los 10,000 escenarios posibles para los próximos 5 años, viendo cómo evolucionan tus fondos mes a mes bajo diferentes condiciones de mercado.
+Como se observa en el rango de percentiles **P10-P90** de la visualización, la inversión con deuda presenta una dispersión de resultados mucho más amplia ($26M - $93M). Esto implica un potencial de retorno elevado pero con un riesgo de pérdida de capital significativo ante escenarios de mercado adversos.
+
+## Visualización Interactiva de Escenarios
+
+La herramienta a continuación permite explorar 10,000 trayectorias posibles para los próximos 60 meses. Como se vio en los párrafos de resultados, cada línea representa una evolución de fondos bajo condiciones de mercado variables.
 
 <div style="position: relative; width: 100%; padding-bottom: 62%; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
   <iframe
@@ -29,82 +33,47 @@ La visualización interactiva a continuación te permite explorar los 10,000 esc
   </iframe>
 </div>
 
-## Las Cuatro Estrategias Analizadas
+## Resumen de Estrategias Analizadas
 
 ### 1. **Apalancamiento Agresivo**
-Pides $27 millones, inviertes todo en Fondo Perfil A (agresivo), pagas $699,125 mensuales.
-- **Rentabilidad esperada:** 14.8% anual (neta de costos)
-- **Volatilidad:** 22% anual
-- **Perfil:** Alto riesgo, alto potencial de retorno
+Crédito de $27 millones invertido en Fondo Perfil A (agresivo).
+- **Riesgo:** Alto, con alta dispersión en el rango **P10-P90**.
+- **Costo:** Pago de cuota mensual fija de $699,125.
 
-### 2. **Aportes Agresivos**
-Inviertes $699,125 mensuales en Fondo Perfil A, sin deuda.
-- **Rentabilidad esperada:** 14.8% anual (neta de costos)
-- **Volatilidad:** 22% anual
-- **Perfil:** Riesgo moderado-alto, construcción gradual
+### 2. **Aportes Agresivos (Sin Deuda)**
+Inversión mensual de $699,125 en Fondo Perfil A.
+- **Riesgo:** Moderado-alto, con mejor protección ante caídas.
+- **Resultado:** Mayor patrimonio promedio al final del periodo.
 
 ### 3. **Apalancamiento Moderado**
-Pides $27 millones, inviertes todo en Fondo Perfil C (moderado), pagas $699,125 mensuales.
-- **Rentabilidad esperada:** 11.5% anual (neta de costos)
-- **Volatilidad:** 15% anual
-- **Perfil:** Riesgo moderado, rendimiento moderado
+Crédito de $27 millones invertido en Fondo Perfil C (moderado).
+- **Patrimonio promedio:** ~$48 millones.
 
-### 4. **Aportes Moderados**
-Inviertes $699,125 mensuales en Fondo Perfil C, sin deuda.
-- **Rentabilidad esperada:** 11.5% anual (neta de costos)
-- **Volatilidad:** 15% anual
-- **Perfil:** Bajo riesgo, crecimiento constante
+### 4. **Aportes Moderados (Sin Deuda)**
+Inversión mensual de $699,125 en Fondo Perfil C.
+- **Patrimonio promedio:** ~$56 millones.
+- **Estabilidad:** Menor dispersión de todas las estrategias en el gráfico.
 
-## Metodología
+## Metodología y Datos
 
-### Monte Carlo con Colas Gruesas
+### Simulación con Colas Gruesas
+En lugar de una distribución normal, utilicé la **distribución t-Student con 5 grados de libertad**. Este enfoque captura la realidad de forma más precisa: los mercados financieros sufren eventos extremos con una frecuencia mayor a la prevista por modelos clásicos.
 
-En lugar de asumir que los mercados tienen distribución normal, utilicé **distribución t-Student con 5 grados de libertad**. Esto captura mejor la realidad: los mercados financieros tienen más eventos extremos (tanto ganancias excepcionales como pérdidas severas) de lo que predice una distribución normal.
-
-### Datos Reales
-
-Los parámetros de rentabilidad y volatilidad provienen de datos históricos reales de los fondos mutuos de BancoEstado AGF correspondientes al período 2024. Aunque esto es una muestra pequeña, es lo más preciso disponible para la simulación.
-
-### Descuentos de Costos
-
-Cada simulación automáticamente descuenta:
-- **TAC (Tasa Anual de Costos)** del fondo (1% para Perfil A, 0.85% para Perfil C)
-- **Intereses del crédito** (1.25% mensual) en las estrategias apalancadas
-
-## Resultados
-
-**Estrategia de Apalancamiento Agresivo:**
-- Patrimonio promedio al mes 60: **~$56 millones**
-- Rango P10-P90: $26M - $93M
-- Alta dispersión: máximo potencial pero también mayor riesgo
-
-**Estrategia de Aportes Agresivos (sin deuda):**
-- Patrimonio promedio al mes 60: **~$62 millones**
-- Rango P10-P90: $41M - $87M
-- Mejor rendimiento promedio con menor dispersión que el apalancado
-
-**Estrategia de Apalancamiento Moderado:**
-- Patrimonio promedio al mes 60: **~$48 millones**
-- Rango P10-P90: $29M - $69M
-
-**Estrategia de Aportes Moderados (sin deuda):**
-- Patrimonio promedio al mes 60: **~$56 millones**
-- Rango P10-P90: $43M - $71M
-- Menor dispersión de todas las estrategias
+### Parámetros Reales
+Los datos de rentabilidad y volatilidad corresponden a registros históricos de BancoEstado AGF del periodo 2024. El sistema descuenta de forma automática:
+- **TAC (Tasa Anual de Costos)** del fondo (1% en Perfil A, 0.85% en Perfil C).
+- **Intereses del crédito** (1.25% mensual) para escenarios con deuda.
 
 ## La Decisión Final
 
-No existe una estrategia "mejor" universalmente. La decisión correcta es la que se alinea con tu capacidad financiera, tolerancia al riesgo y circunstancias personales.
+No existe una estrategia con superioridad en todos los casos. La elección correcta depende de la capacidad financiera y la tolerancia al riesgo en lo personal:
 
-- **Elige apalancamiento si:** Tienes tolerancia alta al riesgo, puedes mantener el pago de la deuda incluso si tus ingresos bajan, y tienes horizonte largo (5+ años).
-- **Elige aportes sin apalancamiento si:** Prefieres estabilidad, quieres evitar deuda, o tienes capacidad limitada de pago extra.
+- **Elige apalancamiento si:** Posees una tolerancia alta al riesgo y el pago de la deuda no compromete tu estabilidad ante una baja de ingresos.
+- **Elige aportes sin deuda si:** Prefieres la estabilidad, deseas evitar compromisos financieros o buscas el mejor rendimiento promedio histórico.
 
-**Advertencia:** Este análisis es educativo. Consulta con un asesor financiero certificado antes de implementar cualquier estrategia de inversión, especialmente con apalancamiento.
+**Advertencia:** Este análisis posee fines educativos. Consulta con un asesor financiero antes de implementar estrategias de inversión con deuda.
 
 ---
 
 ### Notas Técnicas
-
-Este proyecto fue desarrollado usando Python (NumPy, Matplotlib) para las simulaciones y JavaScript/D3.js para la visualización interactiva. El código está disponible en [GitHub]({{ page.github_url }}) bajo licencia MIT.
-
-La simulación ejecuta 10,000 trayectorias independientes para cada estrategia, calculando estadísticas mes a mes (promedio, percentiles 10 y 90, mínimos y máximos) para capturar tanto el escenario esperado como los rangos de riesgo.
+Proyecto desarrollado con Python (NumPy) para el motor de simulación y D3.js para la interfaz interactiva. La simulación ejecuta 10,000 trayectorias para capturar tanto el escenario esperado como los límites de riesgo.

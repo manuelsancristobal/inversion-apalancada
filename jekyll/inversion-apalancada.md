@@ -13,15 +13,17 @@ tech_stack:
   - Monte Carlo
 ---
 
-## Comparativa de Resultados: ¿Deuda o Ahorro Gradual?
+## ¿Deuda o Ahorro Gradual? El Dilema de la Inversión
 
-**Los aportes sin deuda ofrecen un rendimiento promedio superior con menor riesgo que las estrategias apalancadas.** Como se aprecia en los resultados de la simulación a 5 años, la estrategia de **Aportes Agresivos** alcanza un patrimonio promedio de **~$62 millones**, superando los **~$56 millones** del **Apalancamiento Agresivo**.
+Todo comenzó con una duda simple tras leer una oferta de crédito: ¿Valdría la pena endeudarse para invertir agresivamente? La respuesta intuitiva no bastaba, así que recurrí a la **Simulación de Monte Carlo**.
 
-Como se observa en el rango de percentiles **P10-P90** de la visualización, la inversión con deuda presenta una dispersión de resultados mucho más amplia ($26M - $93M). Esto implica un potencial de retorno elevado pero con un riesgo de pérdida de capital significativo ante escenarios de mercado adversos.
+Esta técnica, en lugar de darnos un único resultado estático, nos permite "lanzar los dados" miles de veces. Simulamos 10,000 futuros posibles (trayectorias) para ver cómo se comportarían nuestros ahorros bajo las fluctuaciones reales del mercado. Al final del ejercicio, la conclusión fue contundente: **los aportes mensuales sin deuda ofrecen un rendimiento promedio superior y un riesgo significativamente menor que las estrategias apalancadas.**
+
+Para este análisis, fijé un patrimonio meta de **30 millones de pesos en 5 años**, con un presupuesto mensual de **$699.125**. Mientras que la estrategia de **Aportes Agresivos** alcanzó un promedio de **~$62 millones**, el **Apalancamiento Agresivo** se quedó atrás con **~$56 millones**, cargando además con el peso de los intereses.
 
 ## Visualización Interactiva de Escenarios
 
-La herramienta a continuación permite explorar 10,000 trayectorias posibles para los próximos 60 meses. Como se vio en los párrafos de resultados, cada línea representa una evolución de fondos bajo condiciones de mercado variables.
+La herramienta a continuación permite explorar estas 10,000 trayectorias a lo largo de 60 meses. Cada línea representa una evolución posible de los fondos; esta dispersión es vital para entender que en finanzas no solo importa el "promedio", sino también qué tan mal nos puede ir en el peor de los casos.
 
 <div style="position: relative; width: 100%; padding-bottom: 62%; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
   <iframe
@@ -35,45 +37,68 @@ La herramienta a continuación permite explorar 10,000 trayectorias posibles par
 
 ## Resumen de Estrategias Analizadas
 
-### 1. **Apalancamiento Agresivo**
-Crédito de $27 millones invertido en Fondo Perfil A (agresivo).
-- **Riesgo:** Alto, con alta dispersión en el rango **P10-P90**.
-- **Costo:** Pago de cuota mensual fija de $699,125.
-
-### 2. **Aportes Agresivos (Sin Deuda)**
-Inversión mensual de $699,125 en Fondo Perfil A.
-- **Riesgo:** Moderado-alto, con mejor protección ante caídas.
-- **Resultado:** Mayor patrimonio promedio al final del periodo.
-
-### 3. **Apalancamiento Moderado**
-Crédito de $27 millones invertido en Fondo Perfil C (moderado).
-- **Patrimonio promedio:** ~$48 millones.
-
-### 4. **Aportes Moderados (Sin Deuda)**
-Inversión mensual de $699,125 en Fondo Perfil C.
-- **Patrimonio promedio:** ~$56 millones.
-- **Estabilidad:** Menor dispersión de todas las estrategias en el gráfico.
+<div style="overflow-x: auto; margin: 1.5rem 0; border-radius: 8px; border: 1px solid #eee;">
+  <table style="width: 100%; border-collapse: collapse; min-width: 500px; font-size: 0.95rem;">
+    <thead style="background: var(--bg-light);">
+      <tr>
+        <th style="padding: 12px; border-bottom: 2px solid #ddd; text-align: left; width: 30%;">Estrategia</th>
+        <th style="padding: 12px; border-bottom: 2px solid #ddd; text-align: left;">Fondo Agresivo (Perfil A)</th>
+        <th style="padding: 12px; border-bottom: 2px solid #ddd; text-align: left;">Fondo Moderado (Perfil C)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border-bottom: 1px solid #eee; background: var(--bg-light); font-weight: 600;">Aportes Mensuales<br><span style="font-weight: normal; font-size: 0.85rem; color: #666;">(Sin Deuda)</span></td>
+        <td style="padding: 12px; border-bottom: 1px solid #eee;">
+          <strong>~$62 Millones</strong><br>
+          <span style="font-size: 0.85rem; color: #555;">Máximo rendimiento. El patrimonio crece libre de intereses bancarios.</span>
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #eee;">
+          <strong>~$56 Millones</strong><br>
+          <span style="font-size: 0.85rem; color: #555;">Máxima estabilidad. Es la opción con menor dispersión de resultados.</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; background: var(--bg-light); font-weight: 600;">Apalancamiento<br><span style="font-weight: normal; font-size: 0.85rem; color: #666;">(Crédito $27M)</span></td>
+        <td style="padding: 12px;">
+          <strong>~$56 Millones</strong><br>
+          <span style="font-size: 0.85rem; color: #555;">Riesgo alto. La volatilidad puede mermar el capital mientras la deuda sigue intacta.</span>
+        </td>
+        <td style="padding: 12px;">
+          <strong>~$48 Millones</strong><br>
+          <span style="font-size: 0.85rem; color: #555;">Retorno mermado. Los intereses del crédito consumen gran parte de la rentabilidad.</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Metodología y Datos
 
 ### Simulación con Colas Gruesas
-En lugar de una distribución normal, utilicé la **distribución t-Student con 5 grados de libertad**. Este enfoque captura la realidad de forma más precisa: los mercados financieros sufren eventos extremos con una frecuencia mayor a la prevista por modelos clásicos.
+Para que la simulación de Monte Carlo sea realista, utilicé una **distribución t-Student con 5 grados de libertad** (un parámetro estadístico que permite modelar eventos extremos o <abbr title="Un suceso sorpresivo, de gran impacto socioeconómico y que, una vez pasado, se racionaliza por retrospección.">cisnes negros</abbr> con mayor frecuencia). A diferencia de los modelos tradicionales que asumen que las crisis son eventos "imposibles", este enfoque captura la realidad financiera: los mercados sufren caídas extremas con más frecuencia de lo que nos gustaría.
 
-### Parámetros Reales
-Los datos de rentabilidad y volatilidad corresponden a registros históricos de BancoEstado AGF del periodo 2024. El sistema descuenta de forma automática:
-- **TAC (Tasa Anual de Costos)** del fondo (1% en Perfil A, 0.85% en Perfil C).
-- **Intereses del crédito** (1.25% mensual) para escenarios con deuda.
+### Parámetros del Mundo Real
+Los datos de rentabilidad y volatilidad se basan en registros históricos de BancoEstado AGF (2024). Puedes consultar las fuentes de datos originales en estos enlaces: [Tasas de Crédito de Consumo](https://drive.google.com/file/d/1OLy9RsLsmzWdvyZ7heFeRE08ITHcoo10/view) y [Rentabilidad Histórica de Fondos](https://drive.google.com/file/d/1--ukCU5LhXP1Ex8ov3Do0AYlV1TAmtHj/view). 
+
+El modelo descuenta automáticamente:
+- **TAC (Tasa Anual de Costos):** 1% para Perfil A y 0.85% para Perfil C.
+- **Intereses del crédito:** 1.25% mensual para los escenarios con deuda.
 
 ## La Decisión Final
 
-No existe una estrategia con superioridad en todos los casos. La elección correcta depende de la capacidad financiera y la tolerancia al riesgo en lo personal:
+La simulación nos enseña que no hay una "mejor" estrategia absoluta, sino una que se adapta a tu perfil:
 
-- **Elige apalancamiento si:** Posees una tolerancia alta al riesgo y el pago de la deuda no compromete tu estabilidad ante una baja de ingresos.
-- **Elige aportes sin deuda si:** Prefieres la estabilidad, deseas evitar compromisos financieros o buscas el mejor rendimiento promedio histórico.
+- **Considera el apalancamiento solo si:** Tienes una tolerancia al riesgo extremadamente alta y la cuota del crédito no compromete tu estabilidad si tus ingresos bajan.
+- **Prefiere los aportes sin deuda si:** Buscas optimizar el rendimiento promedio y quieres dormir tranquilo sabiendo que no le debes nada al banco mientras construyes tu patrimonio.
 
-**Advertencia:** Este análisis posee fines educativos. Consulta con un asesor financiero antes de implementar estrategias de inversión con deuda.
+**Advertencia:** Este análisis es un ejercicio académico y técnico. Antes de tomar decisiones financieras reales, consulta con un profesional certificado. No te la jueguues solo.
 
 ---
 
 ### Notas Técnicas
 Proyecto desarrollado con Python (NumPy) para el motor de simulación y D3.js para la interfaz interactiva. La simulación ejecuta 10,000 trayectorias para capturar tanto el escenario esperado como los límites de riesgo.
+
+<div class="methodology-box" style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--secondary);">
+    <p style="margin: 0; font-size: 0.95rem;">📌 <strong>Sobre este proyecto:</strong> Esta es una reversión del análisis original. El proyecto original está disponible en <a href="https://colab.research.google.com/drive/1aIuY07LmFaVrT9pR0Q2wX7yj6XsPo1QW" target="_blank" style="color: var(--secondary); font-weight: 600;">Google Colab</a>.</p>
+</div>

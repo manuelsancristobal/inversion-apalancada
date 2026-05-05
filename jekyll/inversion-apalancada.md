@@ -35,6 +35,8 @@ La herramienta a continuación permite explorar estas 10,000 trayectorias a lo l
   </iframe>
 </div>
 
+[Ver en pantalla completa](/proyectos/inversion-apalancada/viz.html){: .btn .btn--primary }
+
 ## Resumen de Estrategias Analizadas
 
 <div style="overflow-x: auto; margin: 1.5rem 0; border-radius: 8px; border: 1px solid #eee;">
